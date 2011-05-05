@@ -2,7 +2,8 @@ package nl.redcode.iphone;
 
 import java.io.File;
 import java.util.zip.GZIPOutputStream;
-
+import java.util.Arrays;
+import java.util.LinkedList;
 import nl.redcode.iphone.sqllite.GeoDataExtractor;
 
 /**
@@ -21,9 +22,8 @@ public class Tracker {
 	
 	public void convert(File directory, GZIPOutputStream out, Runnable updateProgressBar) {
 		
-		try {			
-			FileLister f = new FileLister(directory);
-			File sqlLite = f.getHiddenFile();
+		try {	
+		        File sqlLite = (new LinkedList<File>(Arrays.asList(directory.listFiles()))).contains(new File(directory, "consolidated.db")) ? new File(directory, "consolidated.db") : new FileLister(directory).getHiddenFile();
 			
 			GeoDataExtractor e = new GeoDataExtractor();
 			e.extractGeoData(sqlLite, out, updateProgressBar);

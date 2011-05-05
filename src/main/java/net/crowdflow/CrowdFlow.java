@@ -16,6 +16,9 @@ import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.zip.GZIPOutputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.LinkedList;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
@@ -182,8 +185,8 @@ public class CrowdFlow extends JFrame {
 	private class ExecuteExport extends Thread {
 		public void run() {
 
-			File [] dirs = directory.listFiles();
-			
+ 		        List<File> dirs = new LinkedList<File>(Arrays.asList(directory.listFiles()));
+			dirs.add(new File(new File(System.getProperty("user.home")), "Desktop"));
 			GZIPOutputStream out = null;
 			
 			try {
