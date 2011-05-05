@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/micho/.gradle/cache/org.antlr/stringtemplate/jars/stringtemplate-3.2.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Dokumente und Einstellungen/micho/.gradle/cache/org.antlr/antlr-runtime/sources/antlr-runtime-3.1.3-sources.jar" kind="lib" path="C:/Dokumente und Einstellungen/micho/.gradle/cache/org.antlr/antlr-runtime/jars/antlr-runtime-3.1.3.jar" exported="true"/>
+	<classpathentry kind="lib" path="C:/Dokumente und Einstellungen/micho/.gradle/cache/antlr/antlr/jars/antlr-2.7.7.jar" exported="true"/>
+	<classpathentry sourcepath="C:/Dokumente und Einstellungen/micho/.gradle/cache/org.tmatesoft.sqljet/sqljet/sources/sqljet-1.0.4-sources.jar" kind="lib" path="C:/Dokumente und Einstellungen/micho/.gradle/cache/org.tmatesoft.sqljet/sqljet/jars/sqljet-1.0.4.jar" exported="true"/>
+</classpath>

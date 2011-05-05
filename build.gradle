@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+defaultTasks 'jarAll'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'org.tmatesoft.sqljet:sqljet:1.0.4'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.0-milestone-2'
+}
+
+task jarAll(dependsOn: configurations.default.buildArtifacts, type: Jar) {
+	description = 'Creates a shaded/uberjar/fatjar of the application.'
+	classifier = 'all'
+
+	manifest.attributes(
+		'Main-Class': 'net.crowdflow.CrowdFlow'
+	)
+
+	from (sourceSets.main.classesDir)
+
+	doFirst {  // <- note the doFirst
+		// the following must be executed in doFirst since the configuration
+		// has not been initialized at configuration time
+		from (configurations.runtime.resolve().collect { it.isDirectory() ? it : zipTree(it) }) {
+			exclude 'META-INF/MANIFEST.MF'
+			exclude 'META-INF/*.SF'
+			exclude 'META-INF/*.DSA'
+			exclude 'META-INF/*.RSA'
+		}
+	}
+}
+
